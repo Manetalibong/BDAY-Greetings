@@ -245,22 +245,13 @@ export function HugShow({ open, onClose }: HugShowProps) {
                     {greeting.recipientName}
                   </motion.h2>
 
-                  <motion.p
-                    className="body-text hug-caption"
-                    initial={reduceMotion ? false : { opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 4.8, duration: 1.2 }}
-                  >
-                    A warm hug, written across the sky.
-                  </motion.p>
-
                   <motion.button
                     type="button"
                     className="cta cta--ghost hug-close"
                     onClick={onClose}
                     initial={reduceMotion ? false : { opacity: 0, y: 14 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 8.5, duration: 0.9 }}
+                    transition={{ delay: 6.5, duration: 0.9 }}
                     whileTap={reduceMotion ? undefined : { scale: 0.98 }}
                   >
                     {greeting.hugCloseCta}
