@@ -1,0 +1,240 @@
+.scripture-stage {
+  gap: 1rem;
+  justify-content: flex-start;
+  padding: max(1.25rem, env(safe-area-inset-top)) 1rem max(1.75rem, env(safe-area-inset-bottom));
+  min-height: 100dvh;
+}
+
+.scripture-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  max-width: 22rem;
+  width: 100%;
+}
+
+.scripture-title {
+  font-size: clamp(1.85rem, 8vw, 2.5rem);
+  color: var(--rose-deep);
+}
+
+.scripture-intro {
+  font-size: 0.95rem;
+}
+
+.scripture-deck {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.85rem;
+  width: min(100%, 22rem);
+  flex: 1;
+}
+
+.scripture-progress {
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.75;
+}
+
+.scripture-card-slot {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  max-height: min(58dvh, 420px);
+  perspective: 1200px;
+  touch-action: pan-y;
+}
+
+.verse-flip {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: inherit;
+  cursor: grab;
+  -webkit-tap-highlight-color: transparent;
+  border-radius: 18px;
+}
+
+.verse-flip:active {
+  cursor: grabbing;
+}
+
+.verse-flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.verse-flip--flipped .verse-flip-inner {
+  transform: rotateY(180deg);
+}
+
+.verse-face {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1.5rem 1.25rem;
+  border-radius: 18px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  box-shadow: var(--shadow-soft);
+}
+
+.verse-face--front {
+  background:
+    linear-gradient(155deg, rgba(255, 248, 240, 0.97), rgba(245, 220, 200, 0.94)),
+    var(--cream);
+  border: 1px solid rgba(201, 160, 74, 0.4);
+}
+
+.verse-face--back {
+  background: linear-gradient(160deg, var(--rose) 0%, var(--rose-deep) 100%);
+  color: #fff8f4;
+  transform: rotateY(180deg);
+  justify-content: space-between;
+  padding: 1.35rem 1.2rem 1.15rem;
+}
+
+.verse-ornament {
+  width: 12px;
+  height: 12px;
+  background: var(--gold);
+  transform: rotate(45deg);
+  box-shadow: 0 0 10px rgba(201, 160, 74, 0.55);
+}
+
+.verse-ref {
+  font-size: clamp(1.55rem, 6.5vw, 1.9rem);
+  color: var(--rose-deep);
+  line-height: 1.15;
+}
+
+.verse-hint {
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  opacity: 0.75;
+}
+
+.verse-text {
+  margin: 0;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  font-family: var(--font-display);
+  font-size: clamp(1.05rem, 4.2vw, 1.25rem);
+  font-style: italic;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.verse-ref-small {
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  opacity: 0.85;
+}
+
+.scripture-dots {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.45rem;
+  min-height: 28px;
+  align-items: center;
+}
+
+.scripture-dot {
+  width: 10px;
+  height: 10px;
+  min-width: 28px;
+  min-height: 28px;
+  padding: 0;
+  border-radius: 999px;
+  background: transparent;
+  position: relative;
+}
+
+.scripture-dot::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(158, 61, 74, 0.28);
+  transition: width 0.25s ease, background 0.25s ease;
+}
+
+.scripture-dot--active::after {
+  width: 18px;
+  border-radius: 999px;
+  background: var(--rose);
+}
+
+.scripture-dot--seen:not(.scripture-dot--active)::after {
+  background: var(--gold);
+}
+
+.scripture-nav {
+  display: flex;
+  width: 100%;
+  gap: 0.65rem;
+}
+
+.scripture-nav-btn {
+  flex: 1;
+  min-height: 48px;
+  border-radius: 999px;
+  border: 1.5px solid rgba(158, 61, 74, 0.3);
+  color: var(--rose-deep);
+  font-size: 0.95rem;
+  font-weight: 500;
+  background: rgba(255, 248, 240, 0.55);
+  transition: opacity 0.2s ease, background 0.2s ease;
+}
+
+.scripture-nav-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.scripture-nav-btn:not(:disabled):active {
+  background: rgba(255, 248, 240, 0.9);
+}
+
+.scripture-cta {
+  width: min(100%, 22rem);
+  margin-top: 0.25rem;
+}
+
+@media (min-width: 640px) {
+  .scripture-stage {
+    justify-content: center;
+    padding: 2rem 1.5rem;
+  }
+
+  .scripture-card-slot {
+    max-height: 440px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .verse-flip-inner {
+    transition: none;
+  }
+}

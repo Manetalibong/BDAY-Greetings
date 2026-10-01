@@ -1,0 +1,104 @@
+.seal-stage {
+  gap: 0;
+}
+
+.seal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  max-width: 32rem;
+  width: 100%;
+}
+
+.seal-eyebrow {
+  font-size: 0.95rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.seal-name {
+  font-size: clamp(3.2rem, 12vw, 5.5rem);
+  line-height: 0.95;
+  color: var(--rose-deep);
+  text-shadow: 0 2px 24px rgba(196, 92, 106, 0.25);
+}
+
+.seal-line {
+  font-size: 1.1rem;
+  max-width: 26rem;
+  margin-bottom: 0.5rem;
+}
+
+.envelope {
+  position: relative;
+  width: min(280px, 72vw);
+  height: 180px;
+  margin: 0.75rem 0 1.25rem;
+  border-radius: 8px;
+  background: linear-gradient(160deg, #f8ebe0 0%, #efd9c8 100%);
+  overflow: hidden;
+}
+
+.envelope-flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 52%;
+  background: linear-gradient(180deg, #f3e0d0 0%, #e8cbb8 100%);
+  clip-path: polygon(0 0, 50% 100%, 100% 0);
+  z-index: 1;
+}
+
+.envelope-body {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.wax-seal {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(circle at 35% 30%, #d47884, var(--rose-deep));
+  box-shadow:
+    0 4px 12px rgba(62, 36, 40, 0.25),
+    inset 0 2px 6px rgba(255, 255, 255, 0.25);
+  border: 2px solid rgba(201, 160, 74, 0.55);
+}
+
+.wax-heart {
+  position: relative;
+  width: 18px;
+  height: 16px;
+}
+
+.wax-heart::before,
+.wax-heart::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 10px;
+  height: 16px;
+  border-radius: 10px 10px 0 0;
+  background: #fff5f0;
+}
+
+.wax-heart::before {
+  left: 9px;
+  transform: rotate(-45deg);
+  transform-origin: 0 100%;
+}
+
+.wax-heart::after {
+  left: 0;
+  transform: rotate(45deg);
+  transform-origin: 100% 100%;
+}
